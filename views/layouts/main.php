@@ -25,10 +25,11 @@ use yii\bootstrap4\NavBar;
 <body class="d-flex flex-column h-100">
 <?php $this->beginBody() ?>
 
+
 <nav class="navbar main-menu navbar-default">
     <div class="container">
         <div class="menu-content">
-            <!-- Brand and toggle get grouped for better mobile display -->
+
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                         data-target="#bs-example-navbar-collapse-1">
@@ -56,10 +57,8 @@ use yii\bootstrap4\NavBar;
                 </div>
 
             </div>
-            <!-- /.navbar-collapse -->
         </div>
     </div>
-    <!-- /.container-fluid -->
 </nav>
 
 
