@@ -111,9 +111,13 @@ class SiteController extends Controller
     public function actionPost($id){
         $recent = Article::getRecent();
         $article = Article::findOne($id);
+        $article->viewedCount();
         return $this->render('post',[
             'article'=>$article,
             'recent'=>$recent,
         ]);
+    }
+    public function actionFake(){
+        return $this->render('fake');
     }
 }
