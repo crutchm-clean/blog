@@ -39,6 +39,7 @@ AppAsset::register($this);
         'items' => [
             ['label' => 'Home', 'url' => ['/admin/default/index']],
             ['label' => 'Articles', 'url' => ['/admin/article/index']],
+            ['label'=>'blog main page', 'url'=>['/site/index']]
         ],
     ]);
     NavBar::end();
@@ -55,12 +56,7 @@ AppAsset::register($this);
     </div>
 </main>
 
-<footer class="footer mt-auto py-3 text-muted">
-    <div class="container">
-        <p class="float-left">&copy; My Company <?= date('Y') ?></p>
-        <p class="float-right"><?= Yii::powered() ?></p>
-    </div>
-</footer>
+
 
 <?php $this->endBody() ?>
 </body>

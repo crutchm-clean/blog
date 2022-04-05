@@ -78,34 +78,7 @@ class SiteController extends Controller
      *
      * @return Response|string
      */
-    public function actionLogin()
-    {
-        if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
 
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
-        }
-
-        $model->password = '';
-        return $this->render('login', [
-            'model' => $model,
-        ]);
-    }
-
-    /**
-     * Logout action.
-     *
-     * @return Response
-     */
-    public function actionLogout()
-    {
-        Yii::$app->user->logout();
-
-        return $this->goHome();
-    }
 
     /**
      * Displays contact page.
@@ -135,8 +108,12 @@ class SiteController extends Controller
         return $this->render('about');
     }
 
-    public function actionView(){
-
-        return $this->render('post');
+    public function actionPost($id){
+        $recent = Article::getRecent();
+        $article = Article::findOne($id);
+        return $this->render('post',[
+            'article'=>$article,
+            'recent'=>$recent,
+        ]);
     }
 }

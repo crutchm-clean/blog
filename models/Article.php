@@ -99,6 +99,15 @@ class Article extends \yii\db\ActiveRecord
     }
 
     public static function getRecent(){
-        return Article::find()->orderBy('date asc')->limit(4)->all();
+        return Article::find()->orderBy('date desc')->limit(4)->all();
+    }
+
+    public function saveArticle(){
+        $this->user_id = Yii::$app->user->id;
+        return $this->save(false);
+    }
+
+    public function getAuthor(){
+        return $this->hasOne(User::className(), ['id'=>'user_id']);
     }
 }
